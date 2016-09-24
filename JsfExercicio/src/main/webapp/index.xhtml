@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:f="http://java.sun.com/jsf/core"
+>
+
+<h:body>
+	<h:form id="userForm" style="background-color:#F2F2F2; width: 924px; ">
+		<h:panelGrid id="Leitura" columns="3" style="align:center; width: 630px; height: 174px; ">
+			<f:facet name="header">
+				<h:outputText value="Autenticar Usuário!"/>
+			</f:facet>
+			<div class="container">
+				<div class="row">
+					<h:outputText id="nomeLabel" value="Nome :"/>
+					<h:inputText id="nome" value="#{user.nome}"
+						size="20" required="true"
+						label="Nome" >
+					</h:inputText>
+					</div>
+					<div class="row">
+					<h:outputText id="senhaLabel" value="Senha :"/>
+					<h:inputText id="senha" value="#{user.senha}"
+						size="20" required="true"
+						label="Senha" >
+					</h:inputText>
+				</div>
+			</div>
+			<div class="row"></div>
+			<div class="row"></div>
+		</h:panelGrid>
+		<h:commandButton id="logar" value="Logar" style="background-color:#81F7F3" action="#{user.login}">
+		<f:ajax execute="@form" render="nomeFail senhaFail" />
+		</h:commandButton><h:message id="senhaFail" for="senha" style="color:#FE2E2E" /><h:outputText id="teste" value=" --- "/><h:message id="nomeFail" for="nome" style="color:#FE2E2E" />
+	</h:form>
+</h:body>
+</html>
